@@ -1,12 +1,21 @@
 import {
   motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
   useSpring,
+  useMotionValue,
+  // TimelineProgress,
 } from "framer-motion";
 
-import { useEffect } from "react";
+import "../styles/custom-animations.css";
+import "../styles/filter-controls.css";
+import "../styles/floating-nav.css";
+import "../styles/global.css";
+import "../styles/hero.css";
+import "../styles/index.css";
+import "../styles/progress.css";
+import "../styles/modal.css";
+import "../styles/stats-panel.css";
+import "../styles/theme.css";
+import "../styles/timeline-item.css";
 
 export function TimelineProgress({ progress }) {
   const scaleX = useSpring(progress, {
@@ -16,22 +25,17 @@ export function TimelineProgress({ progress }) {
   });
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-      {/* Progress Bar */}
-      <motion.div
-        className="h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 origin-left shadow-lg shadow-purple-500/50"
-        style={{ scaleX }}
-      />
+    <div className="progress-container">
+      <motion.div className="progress-bar" style={{ scaleX }} />
 
-      {/* Percentage Indicator */}
       <motion.div
-        className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 pointer-events-auto"
+        className="progress-indicator"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" />
-          <motion.span className="text-xs font-mono text-white">
+        <div className="progress-indicator-inner">
+          <div className="progress-indicator-dot" />
+          <motion.span className="progress-indicator-text">
             {progress.get() ? Math.round(progress.get() * 100) : 0}% explored
           </motion.span>
         </div>

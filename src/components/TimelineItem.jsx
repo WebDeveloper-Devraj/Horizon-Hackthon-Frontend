@@ -1,11 +1,17 @@
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
 import { useState } from "react";
+
+import "../styles/custom-animations.css";
+import "../styles/filter-controls.css";
+import "../styles/floating-nav.css";
+import "../styles/global.css";
+import "../styles/hero.css";
+import "../styles/index.css";
+import "../styles/progress.css";
+import "../styles/modal.css";
+import "../styles/stats-panel.css"
+import "../styles/theme.css";
+import "../styles/timeline-item.css";
 
 export function TimelineItem({ item, index, isLeft, onClick }) {
   const [isHovered, setIsHovered] = useState(false);

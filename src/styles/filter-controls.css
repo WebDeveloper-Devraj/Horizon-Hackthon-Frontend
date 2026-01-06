@@ -1,0 +1,235 @@
+.filter-controls {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(24px);
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.filter-controls-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.filter-controls-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-controls-title-section h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.filter-controls-subtitle {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-family: 'Courier New', monospace;
+}
+
+.filter-controls-view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.375rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-view-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #9ca3af;
+}
+
+.filter-view-button:hover {
+  color: white;
+  transform: scale(1.05);
+}
+
+.filter-view-button-active {
+  background: linear-gradient(to right, #9333ea, #3b82f6);
+  color: white;
+  box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
+}
+
+.filter-era-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.filter-era-button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.filter-era-button:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.filter-era-button-selected {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.filter-era-button-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.filter-era-button:hover .filter-era-button-bg {
+  opacity: 0.7;
+}
+
+.filter-era-button-selected .filter-era-button-bg {
+  opacity: 1;
+}
+
+.filter-era-button-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+}
+
+.filter-era-button-selected .filter-era-button-shine {
+  animation: shine 1.5s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.filter-era-button-content {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+}
+
+.filter-era-button-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.25rem;
+}
+
+.filter-era-button-icon {
+  font-size: 1.25rem;
+}
+
+.filter-era-button-label {
+  font-weight: 600;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.filter-era-button-years {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Courier New', monospace;
+}
+
+.filter-era-button-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: white;
+}
+
+.filter-quick-stats {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-family: 'Courier New', monospace;
+  flex-wrap: wrap;
+}
+
+.filter-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-stat-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.filter-stat-dot-green {
+  background: #10b981;
+}
+
+.filter-stat-dot-blue {
+  background: #3b82f6;
+}
+
+.filter-stat-dot-purple {
+  background: #a855f7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filter-controls-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-controls-view-toggle {
+    width: 100%;
+  }
+
+  .filter-view-button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .filter-era-buttons {
+    width: 100%;
+  }
+
+  .filter-era-button {
+    flex: 1 1 calc(50% - 0.375rem);
+    min-width: 0;
+  }
+
+  .filter-quick-stats {
+    justify-content: center;
+  }
+}

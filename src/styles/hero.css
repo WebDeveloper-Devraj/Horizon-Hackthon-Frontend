@@ -1,0 +1,201 @@
+.hero-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-dynamic-bg {
+  position: absolute;
+  inset: 0;
+  transition: background 0.3s ease;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-grid-line {
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(168, 85, 247, 0.2),
+    transparent
+  );
+}
+
+.hero-grid-line-vertical {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(59, 130, 246, 0.2),
+    transparent
+  );
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 6rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.hero-title-gradient-1 {
+  background: linear-gradient(to right, #c084fc, #f9a8d4, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title-gradient-2 {
+  background: linear-gradient(to right, #60a5fa, #22d3ee, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 2.25rem;
+  font-weight: 600;
+  background: linear-gradient(to right, #e5e7eb, #9ca3af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.hero-year-range {
+  font-size: 1.5rem;
+  color: #c084fc;
+  font-family: 'Courier New', monospace;
+}
+
+.hero-stats {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-stat-card:hover {
+  transform: scale(1.05);
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+.hero-stat-value {
+  font-size: 2.25rem;
+  font-weight: bold;
+  background: linear-gradient(to bottom right, #c084fc, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-stat-label {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}
+
+.hero-scroll-indicator {
+  margin-top: 5rem;
+}
+
+.hero-scroll-text {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 0.75rem;
+}
+
+.hero-scroll-mouse {
+  width: 2rem;
+  height: 3rem;
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  margin: 0 auto;
+}
+
+.hero-scroll-wheel {
+  width: 0.375rem;
+  height: 0.75rem;
+  background: linear-gradient(to bottom, #a855f7, #3b82f6);
+  border-radius: 9999px;
+}
+
+.hero-scroll-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+.hero-scroll-dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 9999px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .hero-year-range {
+    font-size: 1.25rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+}

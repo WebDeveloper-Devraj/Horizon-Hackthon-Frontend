@@ -1,6 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Import all styles */
+@import './global.css';
+@import './app.css';
+@import './hero.css';
+@import './timeline-item.css';
+@import './filter-controls.css';
+@import './stats-panel.css';
+@import './modal.css';
+@import './progress.css';
+@import './floating-nav.css';
 
-/* Optional animation utilities */
-@import "tw-animate-css";
+/* Particles Canvas */
+.particles-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}

@@ -5,6 +5,18 @@ import {
   AnimatePresence,
 } from "framer-motion";
 
+import "../styles/custom-animations.css";
+import "../styles/filter-controls.css";
+import "../styles/floating-nav.css";
+import "../styles/global.css";
+import "../styles/hero.css";
+import "../styles/index.css";
+import "../styles/progress.css";
+import "../styles/modal.css";
+import "../styles/stats-panel.css"
+import "../styles/theme.css";
+import "../styles/timeline-item.css";
+
 export function FilterControls({
   selectedEra,
   setSelectedEra,

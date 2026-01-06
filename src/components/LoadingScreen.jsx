@@ -1,10 +1,18 @@
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from 'react';
+import "../styles"
+
+import "../styles/custom-animations.css";
+import "../styles/filter-controls.css";
+import "../styles/floating-nav.css";
+import "../styles/global.css";
+import "../styles/hero.css";
+import "../styles/index.css";
+import "../styles/progress.css";
+import "../styles/modal.css";
+import "../styles/stats-panel.css"
+import "../styles/theme.css";
+import "../styles/timeline-item.css";
 
 export function LoadingScreen({ onComplete }) {
   const [progress, setProgress] = useState(0);
@@ -41,17 +49,16 @@ export function LoadingScreen({ onComplete }) {
             <motion.div
               className="absolute inset-0"
               animate={{
-                backgroundPosition: ["0% 0%", "100% 100%"],
+                backgroundPosition: ['0% 0%', '100% 100%'],
               }}
               transition={{
                 duration: 10,
                 repeat: Infinity,
-                repeatType: "reverse",
+                repeatType: 'reverse',
               }}
               style={{
-                backgroundImage:
-                  "radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)",
-                backgroundSize: "200% 200%",
+                backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)',
+                backgroundSize: '200% 200%',
               }}
             />
           </div>
@@ -86,7 +93,7 @@ export function LoadingScreen({ onComplete }) {
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{
-                type: "spring",
+                type: 'spring',
                 stiffness: 200,
                 damping: 20,
               }}
@@ -101,7 +108,7 @@ export function LoadingScreen({ onComplete }) {
                   transition={{
                     duration: 3,
                     repeat: Infinity,
-                    ease: "linear",
+                    ease: 'linear',
                   }}
                 >
                   ⚡
@@ -168,12 +175,12 @@ export function LoadingScreen({ onComplete }) {
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                     animate={{
-                      x: ["-100%", "200%"],
+                      x: ['-100%', '200%'],
                     }}
                     transition={{
                       duration: 1.5,
                       repeat: Infinity,
-                      ease: "linear",
+                      ease: 'linear',
                     }}
                   />
                 </motion.div>
@@ -191,9 +198,7 @@ export function LoadingScreen({ onComplete }) {
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
                   {progress < 30 && "Initializing timeline engine..."}
-                  {progress >= 30 &&
-                    progress < 60 &&
-                    "Loading historical data..."}
+                  {progress >= 30 && progress < 60 && "Loading historical data..."}
                   {progress >= 60 && progress < 90 && "Preparing animations..."}
                   {progress >= 90 && "Almost ready!"}
                 </motion.span>
@@ -208,10 +213,10 @@ export function LoadingScreen({ onComplete }) {
               className="mt-12 flex flex-wrap justify-center gap-3"
             >
               {[
-                "32 Milestones",
-                "Interactive 3D",
-                "Particle Effects",
-                "Smooth Animations",
+                '32 Milestones',
+                'Interactive 3D',
+                'Particle Effects',
+                'Smooth Animations',
               ].map((feature, index) => (
                 <motion.div
                   key={feature}
@@ -219,7 +224,7 @@ export function LoadingScreen({ onComplete }) {
                   animate={{ scale: 1 }}
                   transition={{
                     delay: 1 + index * 0.1,
-                    type: "spring",
+                    type: 'spring',
                     stiffness: 200,
                   }}
                   className="px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-xs text-gray-400"

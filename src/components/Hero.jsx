@@ -6,6 +6,18 @@ import {
 } from "framer-motion";
 import { useState, useEffect } from "react";
 
+import "../styles/custom-animations.css";
+import "../styles/filter-controls.css";
+import "../styles/floating-nav.css";
+import "../styles/global.css";
+import "../styles/hero.css";
+import "../styles/index.css";
+import "../styles/progress.css";
+import "../styles/modal.css";
+import "../styles/stats-panel.css"
+import "../styles/theme.css";
+import "../styles/timeline-item.css";
+
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -21,22 +33,20 @@ export function Hero() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Dynamic Gradient Background */}
+    <div className="hero-container">
       <motion.div
-        className="absolute inset-0"
+        className="hero-dynamic-bg"
         style={{
           background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(168, 85, 247, 0.3), transparent 50%)`,
         }}
       />
 
-      {/* Animated Grid Lines */}
-      <div className="absolute inset-0">
+      <div className="hero-grid">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={`h-${i}`}
-            className="absolute h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent"
-            style={{ top: `${i * 5}%`, width: "100%" }}
+            className="hero-grid-line"
+            style={{ top: `${i * 5}%`, width: "100%", height: "1px" }}
             animate={{
               opacity: [0.1, 0.3, 0.1],
               scaleX: [0.8, 1, 0.8],
@@ -51,8 +61,8 @@ export function Hero() {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={`v-${i}`}
-            className="absolute w-px bg-gradient-to-b from-transparent via-blue-500/20 to-transparent"
-            style={{ left: `${i * 5}%`, height: "100%" }}
+            className="hero-grid-line-vertical"
+            style={{ left: `${i * 5}%` }}
             animate={{
               opacity: [0.1, 0.3, 0.1],
               scaleY: [0.8, 1, 0.8],
@@ -66,11 +76,10 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Floating Orbs */}
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={`orb-${i}`}
-          className="absolute rounded-full blur-3xl"
+          className="hero-orb"
           style={{
             width: Math.random() * 300 + 100,
             height: Math.random() * 300 + 100,
@@ -93,15 +102,14 @@ export function Hero() {
         />
       ))}
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="hero-content">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          {/* Glitch Effect Title */}
           <motion.h1
-            className="text-7xl md:text-9xl font-black mb-8 relative"
+            className="hero-title"
             animate={{
               textShadow: [
                 "0 0 20px rgba(168, 85, 247, 0.5)",
@@ -111,35 +119,27 @@ export function Hero() {
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-              TIMELINE
-            </span>
+            <span className="hero-title-gradient-1">TIMELINE</span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              OF INNOVATION
-            </span>
+            <span className="hero-title-gradient-2">OF INNOVATION</span>
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="space-y-4"
           >
-            <p className="text-2xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400">
+            <p className="hero-subtitle">
               The Evolution of Computer Technology
             </p>
-            <p className="text-xl md:text-2xl text-purple-400 font-mono">
-              [ 1800 → 2026 ]
-            </p>
+            <p className="hero-year-range">[ 1800 → 2026 ]</p>
           </motion.div>
 
-          {/* Interactive Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="mt-12 grid grid-cols-3 gap-6 max-w-3xl mx-auto"
+            className="hero-stats"
           >
             {[
               { value: "225+", label: "Years of Innovation" },
@@ -148,55 +148,55 @@ export function Hero() {
             ].map((stat, i) => (
               <motion.div
                 key={i}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
-                whileHover={{
-                  scale: 1.05,
-                  borderColor: "rgba(168, 85, 247, 0.5)",
-                }}
+                className="hero-stat-card"
+                whileHover={{ scale: 1.05 }}
               >
-                <div className="text-4xl font-bold bg-gradient-to-br from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
+                <div className="hero-stat-value">{stat.value}</div>
+                <div className="hero-stat-label">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Scroll Indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
-            className="mt-20"
+            className="hero-scroll-indicator"
           >
             <motion.div
               animate={{ y: [0, 15, 0] }}
               transition={{ repeat: Infinity, duration: 2 }}
-              className="flex flex-col items-center gap-3"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "0.75rem",
+              }}
             >
-              <div className="text-sm text-gray-400 uppercase tracking-wider font-mono">
-                Scroll to Explore
-              </div>
-              <div className="w-8 h-12 border-2 border-purple-500/50 rounded-full flex justify-center p-2">
+              <div className="hero-scroll-text">Scroll to Explore</div>
+              <div className="hero-scroll-mouse">
                 <motion.div
-                  className="w-1.5 h-3 bg-gradient-to-b from-purple-500 to-blue-500 rounded-full"
+                  className="hero-scroll-wheel"
                   animate={{ y: [0, 16, 0], opacity: [1, 0, 1] }}
                   transition={{ repeat: Infinity, duration: 2 }}
                 />
               </div>
-              <div className="flex gap-2">
+              <div className="hero-scroll-dots">
                 <motion.div
-                  className="w-1 h-1 bg-purple-500 rounded-full"
+                  className="hero-scroll-dot"
+                  style={{ background: "#a855f7" }}
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ repeat: Infinity, duration: 1, delay: 0 }}
                 />
                 <motion.div
-                  className="w-1 h-1 bg-blue-500 rounded-full"
+                  className="hero-scroll-dot"
+                  style={{ background: "#3b82f6" }}
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ repeat: Infinity, duration: 1, delay: 0.2 }}
                 />
                 <motion.div
-                  className="w-1 h-1 bg-cyan-500 rounded-full"
+                  className="hero-scroll-dot"
+                  style={{ background: "#22d3ee" }}
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ repeat: Infinity, duration: 1, delay: 0.4 }}
                 />

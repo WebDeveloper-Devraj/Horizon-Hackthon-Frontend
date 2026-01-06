@@ -6,6 +6,18 @@ import {
 } from "framer-motion";
 import { useState, useEffect } from "react";
 
+import "../styles/custom-animations.css";
+import "../styles/filter-controls.css";
+import "../styles/floating-nav.css";
+import "../styles/global.css";
+import "../styles/hero.css";
+import "../styles/index.css";
+import "../styles/progress.css";
+import "../styles/modal.css";
+import "../styles/stats-panel.css"
+import "../styles/theme.css";
+import "../styles/timeline-item.css";
+
 export function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false);
   const [showMenu, setShowMenu] = useState(false);

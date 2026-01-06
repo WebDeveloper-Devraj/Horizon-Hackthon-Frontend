@@ -1,5 +1,16 @@
+import { useEffect, useRef } from 'react';
 
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";import { useEffect, useRef } from 'react';
+import "../styles/custom-animations.css";
+import "../styles/filter-controls.css";
+import "../styles/floating-nav.css";
+import "../styles/global.css";
+import "../styles/hero.css";
+import "../styles/index.css";
+import "../styles/progress.css";
+import "../styles/modal.css";
+import "../styles/stats-panel.css"
+import "../styles/theme.css";
+import "../styles/timeline-item.css";
 
 export function InteractiveParticles() {
   const canvasRef = useRef(null);
@@ -85,8 +96,7 @@ export function InteractiveParticles() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.4 }}
+      className="particles-canvas"
     />
   );
 }

@@ -1,0 +1,47 @@
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.progress-bar {
+  height: 4px;
+  background: linear-gradient(to right, #a855f7, #ec4899, #3b82f6);
+  transform-origin: left;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.progress-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  pointer-events: auto;
+}
+
+.progress-indicator-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-indicator-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #a855f7;
+  border-radius: 9999px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.progress-indicator-text {
+  font-size: 0.75rem;
+  font-family: 'Courier New', monospace;
+  color: white;
+}

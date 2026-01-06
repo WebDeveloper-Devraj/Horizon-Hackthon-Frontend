@@ -1,5 +1,8 @@
-import { useState, useMemo, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useState, useMemo, useRef } from "react";
+import {
+  motion,
+  useScroll,
+} from "framer-motion";
 import { Hero } from "./components/Hero";
 import { TimelineItem } from "./components/TimelineItem";
 import { FilterControls } from "./components/FilterControls";
@@ -8,13 +11,12 @@ import { InteractiveParticles } from "./components/InteractiveParticles";
 import { TimelineProgress } from "./components/TimelineProgress";
 import { ImmersiveModal } from "./components/ImmersiveModal";
 import { FloatingNav } from "./components/FloatingNav";
-import { LoadingScreen } from "./components/LoadingScreen";
+import "./styles/app.css";
 
 export default function App() {
   const [selectedEra, setSelectedEra] = useState("all");
   const [selectedItem, setSelectedItem] = useState(null);
-  const [viewMode, setViewMode] = useState("timeline"); // 'timeline' or 'grid'
-  const [isLoading, setIsLoading] = useState(true);
+  const [viewMode, setViewMode] = useState("timeline");
   const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -33,7 +35,7 @@ export default function App() {
       impact: "Introduced the concept of programming through punched cards",
       icon: "🧵",
       era: "early",
-      color: "from-amber-500 to-orange-500",
+      color: "linear-gradient(135deg, #f59e0b, #ea580c)",
       category: "Mechanical",
     },
     {
@@ -46,7 +48,7 @@ export default function App() {
       impact: "First mechanical computer design",
       icon: "⚙️",
       era: "early",
-      color: "from-yellow-500 to-amber-500",
+      color: "linear-gradient(135deg, #eab308, #f59e0b)",
       category: "Mechanical",
     },
     {
@@ -59,7 +61,7 @@ export default function App() {
       impact: "First computer programmer in history",
       icon: "📝",
       era: "early",
-      color: "from-pink-500 to-rose-500",
+      color: "linear-gradient(135deg, #ec4899, #f43f5e)",
       category: "Software",
     },
     {
@@ -72,7 +74,7 @@ export default function App() {
       impact: "Foundation of digital logic",
       icon: "🔢",
       era: "early",
-      color: "from-blue-500 to-cyan-500",
+      color: "linear-gradient(135deg, #3b82f6, #06b6d4)",
       category: "Theory",
     },
     {
@@ -85,7 +87,7 @@ export default function App() {
       impact: "Reduced census processing from 8 years to 1 year",
       icon: "📊",
       era: "early",
-      color: "from-indigo-500 to-blue-500",
+      color: "linear-gradient(135deg, #6366f1, #3b82f6)",
       category: "Hardware",
     },
     {
@@ -98,7 +100,7 @@ export default function App() {
       impact: "Enabled electronic signal processing",
       icon: "💡",
       era: "mechanical",
-      color: "from-orange-500 to-red-500",
+      color: "linear-gradient(135deg, #ea580c, #dc2626)",
       category: "Hardware",
     },
     {
@@ -111,7 +113,7 @@ export default function App() {
       impact: "Foundation of computer science theory",
       icon: "🎯",
       era: "mechanical",
-      color: "from-purple-500 to-pink-500",
+      color: "linear-gradient(135deg, #a855f7, #ec4899)",
       category: "Theory",
     },
     {
@@ -124,7 +126,7 @@ export default function App() {
       impact: "5,000 calculations per second - 30 tons",
       icon: "🖥️",
       era: "mechanical",
-      color: "from-emerald-500 to-teal-500",
+      color: "linear-gradient(135deg, #10b981, #14b8a6)",
       category: "Hardware",
     },
     {
@@ -137,7 +139,7 @@ export default function App() {
       impact: "Replaced vacuum tubes - smaller & more efficient",
       icon: "🔌",
       era: "mechanical",
-      color: "from-cyan-500 to-blue-500",
+      color: "linear-gradient(135deg, #06b6d4, #3b82f6)",
       category: "Hardware",
     },
     {
@@ -150,7 +152,7 @@ export default function App() {
       impact: "First commercial computer in USA",
       icon: "📺",
       era: "electronic",
-      color: "from-violet-500 to-purple-500",
+      color: "linear-gradient(135deg, #8b5cf6, #a855f7)",
       category: "Hardware",
     },
     {
@@ -163,7 +165,7 @@ export default function App() {
       impact: "First HDD - 5MB storage capacity",
       icon: "💾",
       era: "electronic",
-      color: "from-blue-500 to-indigo-500",
+      color: "linear-gradient(135deg, #3b82f6, #6366f1)",
       category: "Storage",
     },
     {
@@ -176,7 +178,7 @@ export default function App() {
       impact: "Multiple transistors on single chip",
       icon: "🔲",
       era: "electronic",
-      color: "from-green-500 to-emerald-500",
+      color: "linear-gradient(135deg, #10b981, #059669)",
       category: "Hardware",
     },
     {
@@ -189,7 +191,7 @@ export default function App() {
       impact: "First compatible computer family",
       icon: "🏢",
       era: "electronic",
-      color: "from-teal-500 to-cyan-500",
+      color: "linear-gradient(135deg, #14b8a6, #06b6d4)",
       category: "Hardware",
     },
     {
@@ -202,7 +204,7 @@ export default function App() {
       impact: "First packet-switched network - birth of Internet",
       icon: "🌐",
       era: "electronic",
-      color: "from-sky-500 to-blue-500",
+      color: "linear-gradient(135deg, #0ea5e9, #3b82f6)",
       category: "Network",
     },
     {
@@ -215,7 +217,7 @@ export default function App() {
       impact: "2,300 transistors on single chip",
       icon: "🧠",
       era: "electronic",
-      color: "from-indigo-500 to-violet-500",
+      color: "linear-gradient(135deg, #6366f1, #8b5cf6)",
       category: "Hardware",
     },
     {
@@ -228,7 +230,7 @@ export default function App() {
       impact: "Standard for local area networks",
       icon: "🔗",
       era: "electronic",
-      color: "from-purple-500 to-fuchsia-500",
+      color: "linear-gradient(135deg, #a855f7, #d946ef)",
       category: "Network",
     },
     {
@@ -241,7 +243,7 @@ export default function App() {
       impact: "Sparked personal computer revolution",
       icon: "🍎",
       era: "personal",
-      color: "from-red-500 to-pink-500",
+      color: "linear-gradient(135deg, #ef4444, #ec4899)",
       category: "Hardware",
     },
     {
@@ -254,7 +256,7 @@ export default function App() {
       impact: "Established PC standard",
       icon: "💼",
       era: "personal",
-      color: "from-slate-500 to-gray-500",
+      color: "linear-gradient(135deg, #64748b, #6b7280)",
       category: "Hardware",
     },
     {
@@ -267,7 +269,7 @@ export default function App() {
       impact: "Brought GUI to mainstream users",
       icon: "🖱️",
       era: "personal",
-      color: "from-blue-500 to-purple-500",
+      color: "linear-gradient(135deg, #3b82f6, #a855f7)",
       category: "Hardware",
     },
     {
@@ -280,7 +282,7 @@ export default function App() {
       impact: "Created HTTP, HTML, and first web browser",
       icon: "🌍",
       era: "personal",
-      color: "from-green-500 to-teal-500",
+      color: "linear-gradient(135deg, #10b981, #14b8a6)",
       category: "Network",
     },
     {
@@ -293,7 +295,7 @@ export default function App() {
       impact: "Powers billions of devices today",
       icon: "🐧",
       era: "personal",
-      color: "from-yellow-500 to-orange-500",
+      color: "linear-gradient(135deg, #eab308, #ea580c)",
       category: "Software",
     },
     {
@@ -306,7 +308,7 @@ export default function App() {
       impact: "Revolutionized information access",
       icon: "🔍",
       era: "personal",
-      color: "from-blue-500 to-green-500",
+      color: "linear-gradient(135deg, #3b82f6, #10b981)",
       category: "Software",
     },
     {
@@ -319,7 +321,7 @@ export default function App() {
       impact: "60+ million articles in 300+ languages",
       icon: "📚",
       era: "modern",
-      color: "from-gray-500 to-slate-500",
+      color: "linear-gradient(135deg, #6b7280, #64748b)",
       category: "Platform",
     },
     {
@@ -332,7 +334,7 @@ export default function App() {
       impact: "3+ billion users worldwide",
       icon: "👥",
       era: "modern",
-      color: "from-blue-500 to-indigo-500",
+      color: "linear-gradient(135deg, #3b82f6, #6366f1)",
       category: "Platform",
     },
     {
@@ -345,7 +347,7 @@ export default function App() {
       impact: "Created smartphone revolution",
       icon: "📱",
       era: "modern",
-      color: "from-purple-500 to-pink-500",
+      color: "linear-gradient(135deg, #a855f7, #ec4899)",
       category: "Hardware",
     },
     {
@@ -358,7 +360,7 @@ export default function App() {
       impact: "Created modern tablet category",
       icon: "📲",
       era: "modern",
-      color: "from-cyan-500 to-blue-500",
+      color: "linear-gradient(135deg, #06b6d4, #3b82f6)",
       category: "Hardware",
     },
     {
@@ -371,7 +373,7 @@ export default function App() {
       impact: "Sparked modern AI revolution",
       icon: "🤖",
       era: "modern",
-      color: "from-violet-500 to-purple-500",
+      color: "linear-gradient(135deg, #8b5cf6, #a855f7)",
       category: "AI",
     },
     {
@@ -384,7 +386,7 @@ export default function App() {
       impact: "Quantum supremacy demonstrated",
       icon: "⚛️",
       era: "modern",
-      color: "from-indigo-500 to-blue-500",
+      color: "linear-gradient(135deg, #6366f1, #3b82f6)",
       category: "Hardware",
     },
     {
@@ -397,7 +399,7 @@ export default function App() {
       impact: "Foundation of modern AI language models",
       icon: "🔄",
       era: "modern",
-      color: "from-pink-500 to-red-500",
+      color: "linear-gradient(135deg, #ec4899, #dc2626)",
       category: "AI",
     },
     {
@@ -410,7 +412,7 @@ export default function App() {
       impact: "175 billion parameters",
       icon: "💬",
       era: "modern",
-      color: "from-green-500 to-emerald-500",
+      color: "linear-gradient(135deg, #10b981, #059669)",
       category: "AI",
     },
     {
@@ -423,7 +425,7 @@ export default function App() {
       impact: "100M users in 2 months",
       icon: "💭",
       era: "modern",
-      color: "from-teal-500 to-cyan-500",
+      color: "linear-gradient(135deg, #14b8a6, #06b6d4)",
       category: "AI",
     },
     {
@@ -436,7 +438,7 @@ export default function App() {
       impact: "Democratized AI creation tools",
       icon: "✨",
       era: "modern",
-      color: "from-fuchsia-500 to-pink-500",
+      color: "linear-gradient(135deg, #d946ef, #ec4899)",
       category: "AI",
     },
   ];
@@ -444,31 +446,18 @@ export default function App() {
   const filteredData = useMemo(() => {
     if (selectedEra === "all") return timelineData;
     return timelineData.filter((item) => item.era === selectedEra);
-  }, [selectedEra]);
-
-  useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  }, [selectedEra, timelineData]);
 
   return (
-    <div
-      ref={containerRef}
-      className="min-h-screen bg-black text-white overflow-x-hidden"
-    >
-      {/* Animated Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-purple-950 via-black to-blue-950">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyNywgMCwgMjU1LCAwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
+    <div ref={containerRef} className="app-container">
+      <div className="app-background">
+        <div className="app-background-grid"></div>
       </div>
 
       <InteractiveParticles />
       <TimelineProgress progress={scrollYProgress} />
 
-      <div className="relative z-10">
+      <div className="app-content">
         <Hero />
         <StatsPanel data={timelineData} />
         <FilterControls
@@ -478,35 +467,27 @@ export default function App() {
           setViewMode={setViewMode}
         />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="timeline-container">
           {viewMode === "timeline" ? (
             <>
-              {/* Central Timeline Line with Gradient */}
-              <motion.div
-                className="absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 overflow-hidden"
-                style={{
-                  background:
-                    "linear-gradient(180deg, transparent, rgba(168, 85, 247, 0.5) 10%, rgba(59, 130, 246, 0.5) 50%, rgba(168, 85, 247, 0.5) 90%, transparent)",
-                }}
-              >
+              <div className="timeline-line">
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-b from-purple-500 to-blue-500"
+                  className="timeline-line-progress"
                   style={{
                     scaleY: scrollYProgress,
                     transformOrigin: "top",
                   }}
                 />
-              </motion.div>
+              </div>
 
-              {/* Timeline Items */}
               <div className="relative">
                 {filteredData.length === 0 ? (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-center py-20"
+                    className="no-results"
                   >
-                    <p className="text-2xl text-gray-400">
+                    <p className="no-results-text">
                       No milestones found for this era.
                     </p>
                   </motion.div>
@@ -524,7 +505,7 @@ export default function App() {
               </div>
             </>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid-container">
               {filteredData.map((item, index) => (
                 <motion.div
                   key={item.year}
@@ -532,32 +513,28 @@ export default function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                   onClick={() => setSelectedItem(item)}
-                  className={`cursor-pointer p-6 rounded-2xl bg-gradient-to-br ${item.color} bg-opacity-10 border border-white/10 hover:border-white/30 transition-all hover:scale-105`}
+                  className="grid-card"
+                  style={{ background: item.color }}
                 >
-                  <div className="text-5xl mb-4">{item.icon}</div>
-                  <div className="text-sm text-gray-400 mb-2">
-                    {item.decade}
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-400 mb-2">{item.inventor}</p>
-                  <div className="text-xs text-purple-400 bg-purple-500/20 inline-block px-2 py-1 rounded">
-                    {item.category}
-                  </div>
+                  <div className="grid-card-icon">{item.icon}</div>
+                  <div className="grid-card-decade">{item.decade}</div>
+                  <h3 className="grid-card-title">{item.title}</h3>
+                  <p className="grid-card-inventor">{item.inventor}</p>
+                  <div className="grid-card-category">{item.category}</div>
                 </motion.div>
               ))}
             </div>
           )}
 
-          {/* Floating Stats */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mt-32 pb-20"
+            className="ending-section"
           >
-            <div className="inline-block relative">
+            <div className="ending-card">
               <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full opacity-50 blur-2xl"
+                className="ending-glow"
                 animate={{
                   scale: [1, 1.2, 1],
                   opacity: [0.5, 0.3, 0.5],
@@ -567,11 +544,9 @@ export default function App() {
                   repeat: Infinity,
                 }}
               />
-              <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-8 rounded-3xl">
-                <p className="text-3xl font-bold mb-2">
-                  The Journey Continues...
-                </p>
-                <p className="text-lg opacity-90">
+              <div className="ending-content">
+                <p className="ending-title">The Journey Continues...</p>
+                <p className="ending-subtitle">
                   What innovations will shape tomorrow?
                 </p>
               </div>
@@ -580,13 +555,11 @@ export default function App() {
         </div>
       </div>
 
-      {/* Immersive Modal */}
       <ImmersiveModal
         item={selectedItem}
         onClose={() => setSelectedItem(null)}
       />
 
-      {/* Floating Navigation */}
       <FloatingNav />
     </div>
   );
